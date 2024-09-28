@@ -18,7 +18,8 @@ class SchoolJournal:
 
     def final_grade(self):
         print(sum(self.grade_list)/ len(self.grade_list))
-    
+
+
 funct = SchoolJournal('математика', 'юля')
 funct.grade(4)
 funct.grade(5)
