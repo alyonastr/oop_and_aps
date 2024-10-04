@@ -67,6 +67,8 @@ class Vet:
         else:
             print('Не все щенки здоровы')
         
+    def knowledge_base(self):
+        
 
         
 
