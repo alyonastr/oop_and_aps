@@ -40,7 +40,7 @@ class Information:
         print(self.songs)
         print(self.favorite)
 
-s1 = Music(13)
+s1 = Music(600)
 s1.find_song()
 s2 = Playlist(32,14, 'Любимое')
 s2.add_song()
