@@ -3,7 +3,7 @@ class Music:
         self.all_songs = all_songs
     
     def find_song(self):
-        self.song = input()
+        self.song = input('Искать песню:')
 
 class Playlist:
     history = []
@@ -18,7 +18,7 @@ class Playlist:
         self.history = []
 
     def add_song(self):
-        s1.find_song()
+        self.song = s1.find_song()
         self.songs.append(self.song)
         self.qty +=1
         
@@ -28,19 +28,20 @@ class Playlist:
 
     
     def change_len_song(self):
-        self.len_song = int(input())
+        self.len_song = int(input('Обрезать песню '))
 
     def change_name_playlist(self):
-        self.name = str(input())
+        self.name = str(input('Новое название песни:'))
 
 class Information:
 
     def print_information(self):
-        print(self.name)
-        print(self.N)
-        print(self.N_f)
-        print(self.songs)
-        print(self.favorite)
+        i = Playlist(32, 14, 'Любимое')
+        print(i.name)
+        print(i.qty)
+        print(i.qty_fav)
+        print(i.songs)
+        print(i.favorite)
 
 s1 = Music(600)
 s1.find_song()
