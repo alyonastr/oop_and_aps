@@ -86,5 +86,10 @@ if __name__=='__main__':
     f.dog.heal_all()
     f.care()
     f.knowledge_base()
+    f.work()
+    f.care()
+    f.care()
+    f.care()
+    f.knowledge_base()
         
     
