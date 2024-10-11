@@ -6,23 +6,25 @@ class Music:
         self.song = input()
 
 class Playlist:
+    history = []
 
-    def __init__(self, N, N_f, name):
-        self.N = N
+    def __init__(self, qty, qty_fav, name):
+        self.qty = qty
         self.name = name
-        self.N_f = N_f
+        self.qty_fav = qty_fav
         self.len_song = 3
         self.songs = []
         self.favorite = []
+        self.history = []
 
     def add_song(self):
-        self.song = input()
+        s1.find_song()
         self.songs.append(self.song)
-        self.N +=1
+        self.qty +=1
         
     def change_favorites(self):
         self.favorite.append(self.song)
-        self.N_f +=1
+        self.qty_fav +=1
 
     
     def change_len_song(self):
