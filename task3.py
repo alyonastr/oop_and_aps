@@ -1,35 +1,32 @@
 class Puppy:
+    states = ['Болеет', 'Выздоравливает', 'Здоров']
 
-    def __init__(self, index):
-        states = {'1': 'Болеет', 
-                  '2': 'Выздоравливает',
-                  '3': 'Здоров'}
-        self.index = index
-        self.state = states['1']
+    def __init__(self, state):
+        self.states = ['Болеет', 'Выздоравливает', 'Здоров']
+        self.state = self.states[0]
 
     def get_treatment(self):
-        if self.state == self.states['1']:
-            self.state = self.states['2']
-        elif self.state == self.states['2']:
-            self.state = self.states['3']
+        if self.state == self.states[0]:
+            self.state = self.states[1]
+        elif self.state == self.states[1]:
+            self.state = self.states[2]
 
     def is_healthy(self):
-        if self.state == self.states['3']:
+        if self.state == self.states[2]:
             return True
         else: 
             return False
 
 class Dog:
+    states = ['Болеет', 'Выздоравливает', 'Здоров']
 
-    def __init__(self, n, index):
-        states = {'1': 'Болеет', 
-                  '2': 'Выздоравливает',
-                  '3': 'Здоров'}
-        self.n = n
+    def __init__(self, qty, index):
+        states = ['Болеет', 'Выздоравливает', 'Здоров']
+        self.qty = qty
         self.index = index
         self.puppies = []
-        self.state = states['1']
-        for i in range(n+1):
+        self.state = states[0]
+        for i in range(qty+1):
             p = Puppy(i)
             self.puppies.append(p)
 
@@ -39,18 +36,19 @@ class Dog:
             p.get_treatment()
 
     def get_treatment(self):
-        if self.state == self.states['1']:
-            self.state = self.states['2']
-        elif self.state == self.states['2']:
-            self.state = self.states['3']
+        if self.state == self.states[0]:
+            self.state = self.states[1]
+        elif self.state == self.states[1]:
+            self.state = self.states[2]
 
+    healthy_p = 0
     def all_are_healthy(self):
-        healthy = 0
+        healthy_p = 0
         for i in range(len(self.puppies)):
             p = self.puppies[i]
-            if p == self.state['3']:
-                healthy += 1
-            if healthy == len(self.puppies):
+            if p == self.state[2]:
+                healthy_p += 1
+            if healthy_p == len(self.puppies):
                 return True
             else:
                 return False
@@ -60,32 +58,32 @@ class Dog:
 
 class Vet:
 
-    def __init__(self, name, plant):
+    def __init__(self, name, dog):
         self.name = name
-        self.plant = Dog(3, 2)
+        self.dog = Dog(3, 2)
 
     def work(self):
-        self.plant.get_treatment()
+        self.dog.get_treatment()
 
     def care(self):
-        self.all_are_healthy()
-        if healthy == len(self.puppies):
+        self.dog.all_are_healthy()
+        if Dog.healthy_p == len(self.dog.puppies):
             print('Пристроить в хорошие руки')
         else:
             print('Не все щенки здоровы')
         
     def knowledge_base(self):
-        if healthy == len(self.puppies):
+        if Dog.healthy_p == len(self.dog.puppies):
             print('Щенки в хороших руках')
         else:
             print('Щенки на лечении')
         
 if __name__=='__main__':
     f = Vet('Вася', 3)
-    f.plant.heal_all()
+    f.dog.heal_all()
     f.work()
     f.care()
-    f.plant.heal_all()
+    f.dog.heal_all()
     f.care()
     f.knowledge_base()
         
